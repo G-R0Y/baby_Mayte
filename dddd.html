@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Baby Shower</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: #fff0f5;
+      color: #444;
+    }
+
+    .parallax {
+      height: 100vh;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      padding: 2rem;
+    }
+
+    .p1 { background-image: url('imagen1.jpg'); }
+    .p2 { background-image: url('imagen2.jpg'); }
+    .p3 { background-image: url('imagen3.jpg'); }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #d94d94;
+    }
+
+    .frases {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .countdown {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: scale(1);
+      animation: zoomInOut 2s infinite alternate;
+    }
+
+    @keyframes zoomInOut {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .parallax::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 1;
+    }
+
+    .parallax > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .seccion-fotos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .seccion-fotos img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .no-ninos {
+      margin-top: 60px;
+      font-style: italic;
+      color: #888;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="countdown" id="contador"></div>
+
+<div class="parallax p1">
+  <div>
+    <h1>La dulce espera está por terminar</h1>
+    <p>Te invitamos al Baby Shower para celebrar que muy pronto seremos bendecidos con la llegada de <strong>Danna Aysel</strong>.</p>
+  </div>
+</div>
+
+<section>
+  <div class="frases">
+    <p>El amor se multiplica y en la familia habrá una sonrisa iluminando nuestras vidas. Con amor e ilusión esperamos su llegada. ¡Gracias por ser parte de esta alegría!</p>
+    <p>Mis papitos <strong>Isidel</strong> y <strong>Mayte</strong> estamos muy felices y nos gustaría que estés en la primera fiestita que haremos en su honor para darle la bienvenida al mundo.</p>
+    <p><strong>La fecha es 16 de agosto a las 8:00 PM.</strong></p>
+  </div>
+</section>
+
+<div class="parallax p2">
+  <div>
+    <h1>¡Nos encantará verte!</h1>
+  </div>
+</div>
+
+<section>
+  <h1>Momentos que queremos compartir</h1>
+  <div class="seccion-fotos">
+    <img src="foto1.jpg" alt="Padres 1">
+    <img src="foto2.jpg" alt="Padres 2">
+    <img src="foto3.jpg" alt="Padres 3">
+    <img src="foto4.jpg" alt="Padres 4">
+  </div>
+</section>
+
+<div class="parallax p3">
+  <div>
+    <h1>¡Gracias por acompañarnos!</h1>
+  </div>
+</div>
+
+<section>
+  <p class="no-ninos">* Queremos que todos disfruten, por ello, esta celebración será solo para adultos ♥</p>
+</section>
+
+<script>
+  const cuentaAtras = document.getElementById("contador");
+  const fechaEvento = new Date("August 16, 2025 20:00:00").getTime();
+
+  const actualizarCuenta = () => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaEvento - ahora;
+
+    if (diferencia <= 0) {
+      cuentaAtras.innerHTML = "¡Es hoy!";
+      return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    cuentaAtras.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  };
+
+  setInterval(actualizarCuenta, 1000);
+  actualizarCuenta();
+</script>
+
+</body>
+</html>

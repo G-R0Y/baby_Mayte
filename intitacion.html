@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baby Shower de Danna Aysel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        color: #000000;
+        background: #fdf4f4;
+        overflow-x: hidden;
+        font-family: "Delius Swash Caps", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      /* Contador fijo */
+      .countdown {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #fff;
+        color: #1d1b1c;
+        border: 2px solid #f78da7;
+        padding: 15px 25px;
+        border-radius: 15px;
+        font-size: 1.2em;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        animation: zoom 1s infinite alternate;
+      }
+      @keyframes zoom {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.08);
+        }
+      }
+
+      header {
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+      }
+      header h1 {
+        font-size: 3em;
+        font-family: "Delius Swash Caps", cursive;
+        display: inline-block;
+        padding: 20px;
+        border-radius: 15px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      }
+
+      .no-kids {
+        margin-top: 30px;
+        background: #ffe6eb;
+        padding: 15px 20px;
+        border-radius: 15px;
+        font-size: 1.2em;
+        color: #242122;
+        display: inline-block;
+      }
+
+      section {
+        padding: 20px 20px 80px 20px;
+        text-align: center;
+        position: relative;
+      }
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        font-family: "Delius Swash Caps", cursive;
+      }
+      section p {
+        font-size: 1.3em;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+      }
+
+      .parallax {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        color: #202020;
+      }
+
+      .section1 {
+        background-image: url("imagen2.jpg");
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      }
+
+      .section1 p {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      .section2 h2 {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      }
+      .section3 {
+        background-image: url("imagen4.jpg");
+      }
+      /* .section4 { background-image: url('imagen2.jpg'); } */
+
+      .photos {
+        /* display: flex; */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      .buttons {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        background: #f78da7;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background: #e76b91;
+      }
+
+      /* Botón música */
+      #musicBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #f78da7;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+      }
+      #musicBtn:hover {
+        transform: scale(1.1);
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #f78da7;
+      }
+
+      footer p {
+        text-align: center;
+        padding: 15px 60px 15px 20px;
+      }
+      .fecha-hora-container {
+        margin-top: 40px;
+        text-align: center;
+      }
+      .fecha-hora-container h2 {
+        font-family: "Pacifico", cursive;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .fecha-hora-detalle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        font-size: 1.2rem;
+      }
+      .fecha-hora-detalle .linea {
+        width: 3px;
+        height: 80px;
+        background-color: #3f3b3b;
+      }
+      .fecha,
+      .hora {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .fecha .we {
+        font-size: 1.4em;
+      }
+      .contenedor-principal {
+        position: relative; /* necesario para que el gif se posicione dentro de este bloque */
+      }
+      .gif1 {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100px; /* puedes ajustar el tamaño según tu diseño */
+        height: auto;
+        pointer-events: none; /* evita que interfiera con clicks */
+      }
+      .gif2 {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 100px; /* puedes ajustar el tamaño según tu diseño */
+        height: auto;
+        pointer-events: none; /* evita que interfiera con clicks */
+      }
+ .gif3 {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 100px; /* puedes ajustar el tamaño según tu diseño */
+        height: auto;
+        pointer-events: none; /* evita que interfiera con clicks */
+      }
+
+       .gif4 {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        width: 100px; /* puedes ajustar el tamaño según tu diseño */
+        height: auto;
+        pointer-events: none; /* evita que interfiera con clicks */
+      }
+      .camino-huellas {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        background-color: #fff0f5; /* Fondo suave */
+        overflow: hidden;
+      }
+
+      .huella {
+        position: absolute;
+        width: 40px;
+        opacity: 0;
+        animation: aparecer-desvanecer 4s linear forwards;
+      }
+
+      @keyframes aparecer-desvanecer {
+        0% {
+          opacity: 0;
+          transform: scale(0.7);
+        }
+        10% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        80% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Música -->
+    <audio id="music" src="sound1.mp3" loop></audio>
+    <div id="musicBtn"><i class="fa-solid fa-music"></i></div>
+    <!-- Contador -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- Header -->
+    <header class="contenedor-principal">
+      <h3>La dulce espera está por terminar...</h3>
+      <h3><br />Te invitamos al</h3>
+      <h2>
+        <br />
+        Baby Shower
+      </h2>
+      <h3><br />de nuestra pequeña princesa que viene en camino</h3>
+
+      <div class="camino-huellas" id="camino-huellas"></div>
+
+      <h1><br />Danna Aysel</h1>
+      <h2>
+        <img src="imagenaaa.jpg" class="photos" alt="" />
+      </h2>
+      <img src="img1.gif" alt="gif decorativo" class="gif1" />
+ <img src="imagen1.png" alt="gif decorativo" class="gif4" />
+    </header>
+
+    <!-- Frase principal -->
+    <section class="parallax section1" >
+      <p>
+        El amor se multiplica y en la familia habrá una sonrisa iluminando
+        nuestras vidas. Con amor e ilusión esperamos su llegada. ¡Gracias por
+        ser parte de esta alegría!
+      </p>
+      
+    </section>
+
+    <!-- Frase de papitos -->
+    <section class="parallax section2" class="contenedor-principal">
+      <p>Con amor</p>
+      <h2><br />Isidel y Mayte</h2>
+      <p>
+        <br />Estamos muy felices y nos gustaría que estés en la primera
+        fiestita que haremos en su honor para darle la bienvenida al mundo.
+      </p>
+           <img src="img2.gif" alt="gif decorativo" class="gif2" />
+           <img src="img3.gif" alt="gif decorativo" class="gif3" />
+    </section>
+
+    <!-- Invitación -->
+    <!-- <section class="parallax section3">
+    <p>Te invitamos al Baby Shower  para celebrar que muy pronto seremos bendecidos con la llegada de</p>
+    <br>
+    <h1>Danna Aysel</h1>.  
+</section> -->
+
+    <section class="parallax section3">
+      <h2>Te esperamos el día</h2>
+      <div class="fecha-hora-detalle">
+        <div class="fecha">
+          <span>Sábado</span>
+          <span class="we">16 </span>
+          <span>agosto</span>
+        </div>
+        <div class="linea"></div>
+        <div class="hora">
+          <span>8:00</span>
+          <span>PM</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="buttons">
+        <a
+          href="https://maps.app.goo.gl/7BjudeMHs1912VGK8"
+          target="_blank"
+          class="btn"
+        >
+          <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+        </a>
+        <a
+          href="https://wa.me/51945565894?text=¡Confirmo%20mi%20asistencia%20al%20baby%20shower!"
+          target="_blank"
+          class="btn"
+        >
+          <i class="fa-brands fa-whatsapp"></i> Confirmar asistencia
+        </a>
+      </div>
+    </section>
+
+    <!-- Fotos -->
+    <!-- <section style="background:#fff;color:#333;padding:50px 20px;">
+    <h2 style="color:#f78da7;">Momentos especiales</h2>
+    <div class="photos">
+        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto2.jpg" alt="Foto 2">
+        <img src="foto3.jpg" alt="Foto 3">
+        <img src="foto4.jpg" alt="Foto 4">
+    </div>
+</section> -->
+
+    <footer>
+      <div class="no-kids">
+        <i class="fa-solid fa-child"></i> Este evento será solo para adultos
+        ¡Así mamá y papá se relajan un poquito!
+      </div>
+      <p>¡Te esperamos con mucho amor! 💕</p>
+    </footer>
+
+    <script>
+      // Cuenta regresiva
+      const countdownEl = document.getElementById("countdown");
+      const targetDate = new Date("Aug 16, 2025 20:00:00").getTime();
+      setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        if (diff <= 0) {
+          countdownEl.innerHTML = "¡Es hoy!";
+          return;
+        }
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        countdownEl.innerHTML = `${d}d ${h}h ${m}m`;
+      }, 1000);
+
+      // Control música
+      const music = document.getElementById("music");
+      const btn = document.getElementById("musicBtn");
+      btn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        } else {
+          music.pause();
+          btn.innerHTML = '<i class="fa-solid fa-music"></i>';
+        }
+      });
+
+      const contenedor = document.getElementById("camino-huellas");
+      const espacio = 40; // espacio entre huellas
+      const altura = 80; // altura desde el top
+      let paso = 0;
+      let x = 0;
+      const velocidad = 800; // cada 400 ms
+
+      function caminar() {
+        const huella = document.createElement("img");
+        huella.src = paso % 2 === 0 ? "pie_d.png" : "pie_i.png";
+        huella.className = "huella";
+        huella.style.top = `${altura}px`;
+        huella.style.left = `${x}px`;
+        contenedor.appendChild(huella);
+
+        // Eliminar huella luego de 4s (cuando termina su animación)
+        setTimeout(() => {
+          huella.remove();
+        }, 4000);
+
+        paso++;
+        x += espacio;
+
+        // Si llega al final del contenedor, reinicia desde la izquierda
+        if (x > contenedor.offsetWidth - espacio) {
+          x = 0;
+        }
+      }
+
+      setInterval(caminar, velocidad);
+    </script>
+  </body>
+</html>
